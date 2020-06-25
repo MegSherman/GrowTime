@@ -38,3 +38,7 @@ treatment_type_2 varchar(20),
 spent_date date,
 prune_date date
 );
+
+select p.common_name, * from plant_dates pd
+join plants p on p.plant_id = pd.plant_id;
+

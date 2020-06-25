@@ -1,0 +1,50 @@
+.poppy-background {
+  filter: blur(3px);
+  filter: hue-rotate(40deg);
+}
+
+.auth-box-container {
+  @include flexCenter(column);
+}
+
+.auth-box {
+  @include flexCenter(column);
+  height: 45vh;
+  width: 45vw;
+  margin-top: 25vh;
+  background-color: white;
+  box-shadow: 3px 3px 3px 4px black;
+  .logo {
+    height: 10vh;
+    margin-top: 1vh;
+  }
+  h1:before {
+    content: "Grow";
+    color: $darkGreen;
+    text-shadow: 1px 1px $darkestGreen;
+  }
+  h1:after {
+    content: "Time!";
+    color: $orange;
+    text-shadow: 1px 1px $darkOrange;
+  }
+  p {
+    font-weight: 700;
+    font-size: small;
+    margin-top: 1vh;
+    margin-bottom: 4vh;
+  }
+  h6 {
+    font-weight: 700;
+    font-size: small;
+    margin-top: 1vh;
+  }
+  a {
+    color: $darkGreen;
+    font-size: medium;
+    text-shadow: 0.5px 0.5px $darkestGreen;
+  }
+  a:hover {
+    color: $orange;
+  }
+}

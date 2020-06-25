@@ -1,25 +1,20 @@
-import React from 'react';
-import './App.css';
-import Auth from './components/Auth/Auth';
-import Register from './components/Register/Register';
-import Nav from './components/Nav/Nav';
-import Calendar from './components/Calendar/Calendar';
-import List from './components/List/List';
-import Profile from './components/Profile/Profile';
-import Adder from './components/Adder/Adder';
+import React, { useState } from "react"
+import "./styles/styles.scss"
+import { HashRouter } from "react-router-dom"
+import Nav from "./components/Nav/Nav"
+import routes from "./routes"
+import { withRouter } from "react-router-dom"
 
-function App() {
+function App(props) {
   return (
-    <div className="App">
-      <Auth></Auth>
-      <Register></Register>
-      <Nav></Nav>
-      <Calendar></Calendar>
-      <List></List>
-      <Profile></Profile>
-      <Adder></Adder>
-    </div>
-  );
+    <HashRouter>
+      <div className='App'>
+        {props.location.pathname !== "/" &&
+          props.location.pathname !== "/register" && <Nav />}
+        {routes}
+      </div>
+    </HashRouter>
+  )
 }
 
-export default App;
+export default withRouter(App)
