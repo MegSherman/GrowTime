@@ -6,9 +6,17 @@
   @extend .master-input-container;
   .welcome {
     @extend h1:before;
-    margin-top: 2vh;
+    margin-top: 5%;
+    margin-bottom: 3%;
   }
   p {
-    margin: 1vh 2vw;
+    text-align: center;
+    font-style: normal;
+  }
+  .master-input-box {
+    margin: 2%;
+  }
+  .master-button {
+    margin: 4%;
   }
 }

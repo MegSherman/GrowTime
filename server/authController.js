@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt')
 
 module.exports = {
   register: async (req, res) => {
-    console.log('Hi, Register!')
+    // console.log('Hi, Register!')
     const {
       username,
       password,
@@ -15,9 +15,14 @@ module.exports = {
     } = req.body
     const db = req.app.get('db')
 
-    const existingUser = await db.get_user(username)
-    if (existingUser[0]) {
-      return res.status(409).send('Username already exists.')
+    const existingEmail = await db.check_email(email)
+    if (existingEmail[0]) {
+      alert('A user with that email address already exists.')
+      return res.status(409).send('User email already exists.')
+    }
+    const existingUsername = await db.get_user(username)
+    if (existingUsername[0]) {
+      return alert('Username already exists. Please try again.')
     }
     const salt = bcrypt.genSaltSync(10)
     const hash = bcrypt.hashSync(password, salt)

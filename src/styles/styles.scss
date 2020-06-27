@@ -22,13 +22,13 @@
   @include flexCenter(column);
   height: 90%;
   width: 30%;
-  margin-top: 3%;
+  margin: 5%;
   background-color: white;
   box-shadow: 2px 2px 3px 3px $darkestGreen;
 }
 
 h1:before {
-  color: $darkGreen;
+  color: $lightGreen;
   text-shadow: 1px 1px $darkestGreen;
 }
 

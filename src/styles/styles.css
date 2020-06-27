@@ -36,8 +36,9 @@
   text-align: center;
 }
 
-.auth-box h6 {
+.auth-box #slogan {
   margin-top: 2%;
+  font-size: medium;
 }
 
 .auth-box #register-text {
@@ -61,7 +62,7 @@
 }
 
 .register-box .welcome {
-  margin-top: 2vh;
+  margin-top: 5%;
 }
 
 .register-box p {
@@ -101,14 +102,14 @@
           align-items: center;
   height: 90%;
   width: 30%;
-  margin-top: 3%;
+  margin: 5%;
   background-color: white;
   -webkit-box-shadow: 2px 2px 3px 3px #36613b;
           box-shadow: 2px 2px 3px 3px #36613b;
 }
 
 h1:before, .register-box .welcome {
-  color: #6c9f4f;
+  color: #72aa51;
   text-shadow: 1px 1px #36613b;
 }
 

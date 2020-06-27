@@ -33,7 +33,7 @@ const Auth = (props) => {
             The interactive calendar with text reminders <br></br> when to sow,
             fertilize, treat, and prune <br></br>each plant in your garden.
           </p>
-          <h6>You grow it. We'll time it.</h6>
+          <h6 id='slogan'>You grow it. We'll time it.</h6>
           <input
             className='master-input-box'
             placeholder='Username'

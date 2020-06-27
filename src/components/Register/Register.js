@@ -50,8 +50,8 @@ const Register = (props) => {
         <div className='register-box'>
           <h1 className='welcome'>Welcome!</h1>
           <p>
-            Tell us about yourself - so we can retrieve plants in your hardiness
-            zone and set up text reminders on your master calendar.
+            Tell us about yourself - <br></br>so we can retrieve plants in your
+            hardiness zone <br></br>and set up text reminders on your calendar.
           </p>
           <input
             className='master-input-box'
