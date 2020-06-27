@@ -1,3 +1,5 @@
+-- TABLE SETUP
+
 create table growtime_users (
 id serial primary key,
 username varchar(25),
@@ -42,3 +44,16 @@ prune_date date
 select p.common_name, * from plant_dates pd
 join plants p on p.plant_id = pd.plant_id;
 
+-- QUERIES
+
+-- register_user
+insert into growtime_users
+(username, password)
+values ($1, $2);
+
+
+-- register_profile
+insert into growtime_profile
+(first_name, last_name, email, phone, city, state)
+values
+($3, $4, $5, $6, $7, $8)

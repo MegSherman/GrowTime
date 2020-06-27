@@ -1,0 +1,14 @@
+.register-box-container {
+  @include flexCenter(column);
+}
+
+.register-box {
+  @extend .master-input-container;
+  .welcome {
+    @extend h1:before;
+    margin-top: 2vh;
+  }
+  p {
+    margin: 1vh 2vw;
+  }
+}

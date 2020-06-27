@@ -1,50 +1,30 @@
-.poppy-background {
-  filter: blur(3px);
-  filter: hue-rotate(40deg);
-}
-
 .auth-box-container {
   @include flexCenter(column);
 }
 
 .auth-box {
-  @include flexCenter(column);
-  height: 45vh;
-  width: 45vw;
-  margin-top: 25vh;
-  background-color: white;
-  box-shadow: 3px 3px 3px 4px black;
+  @extend .master-input-container;
+  #its {
+    margin-top: 5%;
+    margin-bottom: 1%;
+  }
   .logo {
-    height: 10vh;
-    margin-top: 1vh;
+    height: 25vh;
+    margin-top: 1%;
   }
   h1:before {
-    content: "Grow";
-    color: $darkGreen;
-    text-shadow: 1px 1px $darkestGreen;
+    content: 'Grow';
   }
   h1:after {
-    content: "Time!";
-    color: $orange;
-    text-shadow: 1px 1px $darkOrange;
+    content: 'Time!';
   }
   p {
-    font-weight: 700;
-    font-size: small;
-    margin-top: 1vh;
-    margin-bottom: 4vh;
+    text-align: center;
   }
   h6 {
-    font-weight: 700;
-    font-size: small;
-    margin-top: 1vh;
+    margin-top: 2%;
   }
-  a {
-    color: $darkGreen;
-    font-size: medium;
-    text-shadow: 0.5px 0.5px $darkestGreen;
-  }
-  a:hover {
-    color: $orange;
+  #register-text {
+    margin-top: 2%;
   }
 }

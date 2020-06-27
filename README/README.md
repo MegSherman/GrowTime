@@ -41,7 +41,6 @@ Register:
 <img src="./Screen Shot 2020-06-22 at 11.23.05 PM.png">
 
 
-
 Calendar:
 
 <img src="./Screen Shot 2020-06-22 at 11.23.18 PM.png">
