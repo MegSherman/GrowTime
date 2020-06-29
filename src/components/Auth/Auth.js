@@ -3,21 +3,21 @@ import axios from 'axios'
 import logo from './../../images/growtime-logo.png'
 import Background from './../Background/Background'
 import { connect } from 'react-redux'
-import { loginUser } from '../../ducks/reducer'
+import { setUser } from '../../ducks/reducer'
 
 const Auth = (props) => {
   const [username, setUsername] = useState([''])
   const [password, setPassword] = useState([''])
 
-  const handleLogin = (e) => {
+  const handleLogin = () => {
     axios
       .post('/auth/login', { username, password })
       .then((res) => {
-        loginUser(res.data.id, res.data.username)
-        props.history.push('/calendar')
+        props.setUser(res.data)
+        props.history.push('/plantlist')
       })
       .catch((error) => {
-        alert('Unable to login. Username or password invalid.')
+        alert('Unable to login.')
       })
   }
 
@@ -30,8 +30,8 @@ const Auth = (props) => {
           <img src={logo} alt='logo' className='logo' />
           <h1></h1>
           <p>
-            The interactive calendar with text reminders <br></br> when to sow,
-            fertilize, treat, and prune <br></br>each plant in your garden.
+            Receive text reminders when to sow, fertilize, treat, and prune each
+            plant in your garden.
           </p>
           <h6 id='slogan'>You grow it. We'll time it.</h6>
           <input
@@ -45,7 +45,7 @@ const Auth = (props) => {
             type='password'
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className='master-button' onClick={(e) => handleLogin()}>
+          <button className='master-button' onClick={() => handleLogin()}>
             Login
           </button>
           <p id='register-text'>
@@ -57,4 +57,4 @@ const Auth = (props) => {
   )
 }
 const mapStateToProps = (state) => state
-export default connect(mapStateToProps, { loginUser })(Auth)
+export default connect(mapStateToProps, { setUser })(Auth)

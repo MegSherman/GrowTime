@@ -1,4 +1,6 @@
 const bcrypt = require('bcrypt')
+require('dotenv').config()
+const { PHONE_NUMBER, NODEMAILER_EMAIL } = process.env
 
 module.exports = {
   register: async (req, res) => {
@@ -14,67 +16,100 @@ module.exports = {
       state,
     } = req.body
     const db = req.app.get('db')
+    const transporter = req.app.get('transporter')
+    const twilio = req.app.get('twilio')
 
     const existingEmail = await db.check_email(email)
     if (existingEmail[0]) {
-      alert('A user with that email address already exists.')
       return res.status(409).send('User email already exists.')
     }
-    const existingUsername = await db.get_user(username)
+    const existingUsername = await db.check_username(username)
     if (existingUsername[0]) {
-      return alert('Username already exists. Please try again.')
+      return res.status(409).send('Username already exists.')
     }
-    const salt = bcrypt.genSaltSync(10)
-    const hash = bcrypt.hashSync(password, salt)
-    const newUser = await db.register_user([username, hash])
-    console.log(firstName, lastName, email, phone, city, state)
-    const newProfile = await db.register_profile([
-      firstName,
-      lastName,
-      email,
-      phone,
-      city,
-      state,
-    ])
-    console.log(newProfile)
-    req.session.user = {
-      id: newUser[0].id,
-      username: newUser[0].username,
+    try {
+      const salt = bcrypt.genSaltSync(10)
+      const hash = bcrypt.hashSync(password, salt)
+      const newUser = await db.register_user([username, hash])
+      // .then()
+      // .catch(() => res.status(500).send('Could not register user.'))
+      // console.log(newUser)
+      const user_id = newUser[0].id
+      // console.log(firstName, lastName, email, phone, city, state)
+      const newProfile = await db.register_profile([
+        user_id,
+        firstName,
+        lastName,
+        email,
+        phone,
+        city,
+        state,
+      ])
+      // console.log(newProfile)
+      if (newProfile) {
+        const verifiedUser = await db.verified_user(username)
+        req.session.user = verifiedUser[0]
+        console.log(verifiedUser)
+      }
+
+      // NODEMAILER
+      const mailOptions = {
+        from: NODEMAILER_EMAIL,
+        to: email,
+        subject: 'Thanks for Registering!',
+        text:
+          'Thank you for registering your account with us, check out all the features of our website and enjoy your stay.',
+        html: '',
+      }
+      transporter.sendMail(mailOptions, (error, data) => {
+        if (error) {
+          console.log('Nodemailer welcome email failed to send.')
+        } else {
+          console.log('Nodemailer welcome email sent.')
+        }
+      })
+
+      // TWILIO
+      twilio.messages
+        .create({
+          body: 'Welcome to GrowTime!',
+          from: PHONE_NUMBER,
+          to: phone,
+        })
+        .then((message) => {
+          console.log(`Twilio welcome text sent to ${phone}`)
+          console.log(message.body)
+        })
+        .catch((error) => console.log('Twilio welcome text failed to send.'))
+
+      res.status(200).send(req.session.user)
+    } catch (error) {
+      return res.status(500).send('Could not register user.')
     }
-    res.status(200).send(req.session.user)
   },
 
   login: async (req, res) => {
-    console.log('Hi, Login!')
+    // console.log('Hi, authCtrl.login!')
     const { username, password } = req.body
     const db = req.app.get('db')
 
-    const existingUser = await db.get_user(username)
+    const existingUser = await db.check_username(username)
     if (!existingUser[0]) {
       return res.status(404).send('Incorrect username or password.')
     }
-    const authenticated = bcrypt.compareSync(password, existingUser[0].hash)
+    const authenticated = bcrypt.compareSync(password, existingUser[0].password)
     if (authenticated) {
-      req.session.user = {
-        id: existingUser[0].id,
-        username: existingUser[0].username,
-      }
+      const verifiedUser = await db.verified_user(username)
+      req.session.user = verifiedUser[0]
+      // console.log(req.session.user)
       res.status(200).send(req.session.user)
     } else {
       res.status(404).send('Incorrect username or password.')
     }
   },
 
-  // if (!authenticated) {
-  //     return res.status(404).send ('Incorrect username or password.')
-  // }
-  // delete existingUser[0].hash
-  // req.session.user = existingUser[0]
-  // res.status(200).send(req.session.user)
-  // },
-
   logout: (req, res) => {
-    console.log('Hi, Logout!')
+    // console.log('Hi, authCtrl.logout!')
     req.session.destroy()
     res.sendStatus(200)
   },

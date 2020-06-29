@@ -3,12 +3,13 @@ import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import { render } from 'react-dom'
+import { connect } from 'react-redux'
 
 moment.locale('en-GB')
 const localizer = momentLocalizer(moment)
 const myEventsList = {} //empty object for now
 
-const Month = () => {
+const Month = (props) => {
   const [commonName, setCommonName] = useState('')
   const [scientificName, setScientificName] = useState('')
   const [plantPic, setPlantPic] = useState('')
@@ -28,6 +29,7 @@ const Month = () => {
   const [pruneDate, setPruneDate] = useState('')
   useEffect(() => {
     console.log('useEffect fired')
+    console.log(props)
   }, [])
 
   return (
@@ -40,4 +42,5 @@ const Month = () => {
     // />
   )
 }
-export default Month
+const mapStateToProps = (state) => state
+export default connect(mapStateToProps)(Month)

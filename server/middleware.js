@@ -7,6 +7,8 @@ module.exports = {
     }
   },
 
+  checkAdmin:
+
   // checkEmail: (req, res, next) => {
   //   const { email } = req.body
   //   if (req.body.email.includes("@") && req.body.email.includes(".")) {

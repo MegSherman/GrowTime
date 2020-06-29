@@ -3,8 +3,9 @@ import axios from 'axios'
 import logo from './../../images/growtime-logo.png'
 import Background from './../Background/Background'
 import { connect } from 'react-redux'
-import { registerUser } from '../../ducks/reducer'
+import { setUser } from '../../ducks/reducer'
 import { withRouter } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const Register = (props) => {
   const [username, setUsername] = useState([''])
@@ -17,6 +18,7 @@ const Register = (props) => {
   const [state, setState] = useState([''])
 
   const handleRegister = () => {
+    // add JS function here to reformat phone number
     axios
       .post('/auth/register', {
         username,
@@ -29,18 +31,24 @@ const Register = (props) => {
         state,
       })
       .then((res) => {
-        props.registerUser(
-          res.data.id,
-          res.data.username,
-          res.data.first_name,
-          res.data.email,
-          res.data.phone
-        )
-        props.history.push('/calendar')
+        // props.registerUser(
+        //   res.data.id,
+        //   res.data.username,
+        //   res.data.first_name,
+        //   res.data.email,
+        //   res.data.phone
+        // )
+        props.setUser(res.data)
+        props.history.push('/plantlist')
       })
       .catch((error) => {
+        // console.log(JSON.stringify(error))
+        // sends status code:
         console.log(error)
-        alert('Unable to register. Data incorrect or incomplete.')
+        if (error.response) {
+          toast.error(error.response.request.response)
+        }
+        // alert('Unable to register.')
       })
   }
   return (
@@ -50,8 +58,9 @@ const Register = (props) => {
         <div className='register-box'>
           <h1 className='welcome'>Welcome!</h1>
           <p>
-            Tell us about yourself - <br></br>so we can retrieve plants in your
-            hardiness zone <br></br>and set up text reminders on your calendar.
+            <b>Tell us a bit about yourself - </b>
+            <br></br>so we can retrieve plants in your hardiness zone and set up
+            text reminders for your calendar.
           </p>
           <input
             className='master-input-box'
@@ -124,4 +133,4 @@ const Register = (props) => {
 }
 
 const mapStateToProps = (state) => state
-export default connect(mapStateToProps, { registerUser })(withRouter(Register))
+export default connect(mapStateToProps, { setUser })(withRouter(Register))

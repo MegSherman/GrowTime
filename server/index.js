@@ -1,12 +1,37 @@
 require('dotenv').config()
-const express = require('express'),
+const {
+    SERVER_PORT,
+    CONNECTION_STRING,
+    SESSION_SECRET,
+    TWILIO_TEST_SID,
+    TWILIO_AUTHTOKEN,
+    PHONE_NUMBER,
+    NODEMAILER_EMAIL,
+    NODEMAILER_PASSWORD,
+  } = process.env,
+  express = require('express'),
   app = express(),
   session = require('express-session'),
-  massive = require('massive'),
-  { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env
+  massive = require('massive')
+
 const authCtrl = require('./authController')
 const plantCtrl = require('./plantController')
-const middleware = require('./middleware')
+const nodemailer = require('nodemailer')
+const twilio = require('twilio')(TWILIO_TEST_SID, TWILIO_AUTHTOKEN)
+// const middleware = require('./middleware')
+
+// NODEMAILER TRANSPORTER
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: NODEMAILER_EMAIL,
+    pass: NODEMAILER_PASSWORD,
+  },
+})
+app.set('transporter', transporter)
+
+// TWILIO LOGIC
+app.set('twilio', twilio)
 
 app.use(express.json())
 app.use(
@@ -19,6 +44,18 @@ app.use(
 )
 // console.log(authCtrl)
 // console.log(app)
+// console.log(middleware)
+
+// AUTH ENDPOINTS
+app.post('/auth/register', authCtrl.register)
+app.post('/auth/login', authCtrl.login)
+app.delete('/auth/logout', authCtrl.logout)
+// app.get("/test", (req, res) => {
+//   console.log("test endpoint")
+// })
+
+// PLANT ENDPOINTS
+app.get('/api/plants', plantCtrl.getPlants)
 
 massive({
   connectionString: CONNECTION_STRING,
@@ -32,12 +69,3 @@ massive({
     )
   })
   .catch(console.log('DB is DBroken. :('))
-
-// console.log(middleware)
-// AUTH ENDPOINTS
-app.post('/auth/register', authCtrl.register)
-app.post('/auth/login', authCtrl.login)
-app.delete('/auth/logout', authCtrl.logout)
-// app.get("/test", (req, res) => {
-//   console.log("test endpoint")
-// })

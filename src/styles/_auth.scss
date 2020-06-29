@@ -5,11 +5,12 @@
 .auth-box {
   @extend .master-input-container;
   #its {
-    margin-top: 5%;
+    margin-top: 7%;
     margin-bottom: 1%;
   }
   .logo {
-    height: 25vh;
+    width: 50%;
+    max-width: 95%;
     margin-top: 1%;
   }
   h1:before {

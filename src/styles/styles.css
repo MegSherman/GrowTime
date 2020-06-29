@@ -15,12 +15,13 @@
 }
 
 .auth-box #its {
-  margin-top: 5%;
+  margin-top: 7%;
   margin-bottom: 1%;
 }
 
 .auth-box .logo {
-  height: 25vh;
+  width: 50%;
+  max-width: 95%;
   margin-top: 1%;
 }
 
@@ -63,10 +64,20 @@
 
 .register-box .welcome {
   margin-top: 5%;
+  margin-bottom: 3%;
 }
 
 .register-box p {
-  margin: 1vh 2vw;
+  text-align: center;
+  font-style: normal;
+}
+
+.register-box .master-input-box {
+  margin: 2%;
+}
+
+.register-box .master-button {
+  margin: 4%;
 }
 
 * {
@@ -109,13 +120,13 @@
 }
 
 h1:before, .register-box .welcome {
-  color: #72aa51;
+  color: #80b75f;
   text-shadow: 1px 1px #36613b;
 }
 
 h1:after {
   color: #e9830a;
-  text-shadow: 1px 1px #a96c19;
+  text-shadow: 1px 1px #36613b;
 }
 
 h6 {
