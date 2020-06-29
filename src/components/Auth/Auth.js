@@ -30,8 +30,8 @@ const Auth = (props) => {
           <img src={logo} alt='logo' className='logo' />
           <h1></h1>
           <p>
-            Receive text reminders when to sow, fertilize, treat, and prune each
-            plant in your garden.
+            The database that sends text reminders when to sow, fertilize,
+            treat, and prune each plant in your garden.
           </p>
           <h6 id='slogan'>You grow it. We'll time it.</h6>
           <input

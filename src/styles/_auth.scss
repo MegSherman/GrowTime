@@ -1,32 +1,32 @@
 .auth-box-container {
   @include flexCenter(column);
-}
-
-.auth-box {
-  @extend .master-input-container;
-  #its {
-    margin-top: 7%;
-    margin-bottom: 1%;
-  }
-  .logo {
-    width: 50%;
-    max-width: 95%;
-    margin-top: 1%;
-  }
-  h1:before {
-    content: 'Grow';
-  }
-  h1:after {
-    content: 'Time!';
-  }
-  p {
-    text-align: center;
-  }
-  #slogan {
-    margin-top: 2%;
-    font-size: medium;
-  }
-  #register-text {
-    margin-top: 2%;
+  .auth-box {
+    @include master-input-container;
+    #its {
+      margin-top: 7%;
+      margin-bottom: 1%;
+    }
+    .logo {
+      width: 50%;
+      max-width: 95%;
+      margin-top: 1%;
+    }
+    h1:before {
+      content: 'Grow';
+    }
+    h1:after {
+      content: 'Time!';
+    }
+    h6 {
+      text-align: center;
+    }
+    #slogan {
+      margin-top: 2%;
+      font-size: medium;
+    }
+    #register-text {
+      margin-top: 2%;
+      font-style: normal;
+    }
   }
 }

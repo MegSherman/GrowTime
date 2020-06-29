@@ -3,7 +3,7 @@
 }
 
 .register-box {
-  @extend .master-input-container;
+  @include master-input-container;
   .welcome {
     @extend h1:before;
     margin-top: 5%;

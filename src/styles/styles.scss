@@ -2,6 +2,8 @@
 @import './mixins';
 @import './auth';
 @import './register';
+@import './nav';
+@import './unselected';
 
 * {
   margin: 0;
@@ -16,15 +18,6 @@
 .poppy-background {
   filter: blur(3px);
   filter: hue-rotate(40deg);
-}
-
-.master-input-container {
-  @include flexCenter(column);
-  height: 90%;
-  width: 30%;
-  margin: 5%;
-  background-color: white;
-  box-shadow: 2px 2px 3px 3px $darkestGreen;
 }
 
 h1:before {
@@ -89,8 +82,13 @@ a {
   font-weight: 700;
   font-style: normal;
   text-shadow: 0.5px 0.5px $darkestGreen;
+  text-decoration: none;
 }
 
 a:hover {
   color: $orange;
+}
+
+a:visited {
+  text-decoration: none;
 }

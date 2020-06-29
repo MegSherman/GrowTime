@@ -43,10 +43,11 @@ const Selected = () => {
   return (
     <>
       <div>
-        <h1>Select Your Plants</h1>
+        <h1>Your Plant List</h1>
         <h6>
-          Click on the photos below to receive text reminders when to sow,
-          fertilize, .
+          You currently receive text reminders to care for the plants listed
+          below. Click a photo to remove the plant from your list or
+          double-click to view its profile.
         </h6>
         {/* <input placeholder='Search by Plant Name' onChange={searchPlants()} /> */}
       </div>

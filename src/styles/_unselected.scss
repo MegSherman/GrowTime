@@ -1,0 +1,43 @@
+.unselected {
+  @include flexCenter(column);
+  .unselected-box-container {
+    @include flexCenter(column);
+    width: 90%;
+    margin: 0%;
+    .unselected-box {
+      @include master-input-container;
+      width: 90%;
+      margin-top: 20%;
+      h1 {
+        @extend h1:before;
+        text-align: center;
+        margin-top: 3%;
+      }
+      h6 {
+        margin: 2% 5% 2% 5%;
+      }
+    }
+    .unselected-map {
+      @include flexCenter(row);
+      flex-wrap: wrap;
+      justify-content: space-around;
+      .plant-block {
+        @include flexCenter(row);
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        height: 30vh;
+        width: 15vw;
+        margin: 0px 10px;
+        img {
+          margin: 2%;
+          height: 250px;
+          width: 200px;
+        }
+        h3 {
+          width: 15vw;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

@@ -1,19 +1,17 @@
 module.exports = {
-  checkSession: (req, res, next) => {
-    if (req.session.user) {
-      res.status(200).send(req.session)
-    } else {
-      next()
+  usersOnly: (req, res, next) => {
+    if (!req.session.user) {
+      return res.status(401).send('Please login first.')
     }
+    next()
   },
-
-  checkAdmin:
-
-  // checkEmail: (req, res, next) => {
-  //   const { email } = req.body
-  //   if (req.body.email.includes("@") && req.body.email.includes(".")) {
-  //     next()
-  //   } else {
-  //     return res.status(403).send("Invalid email address.")
-  //   }  // },
+  adminsOnly: (req, res, next) => {
+    if (!req.session.user) {
+      return res.status(401).send('Please login first.')
+    }
+    if (req.session.user.admin === false) {
+      return res.status(403).send('Access limited to admins.')
+    }
+    next()
+  },
 }

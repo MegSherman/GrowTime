@@ -14,7 +14,7 @@ export default (
     <Route exact path='/register' component={Register} />
     {/* <Route path='/calendar' component={Month} /> */}
     <Route path='/plantlist' component={Selected} />
-    <Route path='/addaplant' component={Unselected} />
+    <Route path='/addplant' component={Unselected} />
     <Route path='/profiles/:plantid' component={Profile} />
     <Route path='/database' component={Database} />
   </Switch>
