@@ -2,19 +2,20 @@
 
 create table growtime_users (
 id serial primary key,
-username varchar(25),
-password text,
+username varchar(25) not null,
+password text not null,
 admin boolean default false
 );
 
 create table growtime_profiles (
+id serial primary key,
 user_id integer references growtime_users(id),
-first_name varchar(30),
-last_name varchar(30),
-email varchar(50),
-phone varchar(14),
-city varchar(30),
-state varchar(2)
+first_name varchar(30) not null,
+last_name varchar(30) not null,
+email varchar(50) not null,
+phone varchar(14) not null,
+city varchar(40) not null,
+state varchar(2) not null
 );
 
 create table plants (
@@ -30,6 +31,29 @@ selected boolean default false
 
 create table plant_dates (
 id serial primary key,
+plant_id integer references plants(id),
+spring_planting_date date,
+fertilize_date_1 date,
+fertilize_type_1 varchar(30),
+fertilize_date_2 date,
+fertilize_type_2 varchar(30),
+fertilize_date_3 date,
+fertilize_type_3 varchar(30),
+bloom_date date,
+treatment_date_1 date,
+treatment_type_1 varchar(30),
+treatment_date_2 date,
+treatment_type_2 varchar(30),
+spent_date date,
+prune_date date,
+fall_planting_date date
+);
+
+
+
+create table user_plant_dates (
+id serial primary key,
+user_id integer references growtime_users(id),
 plant_id integer references plants(id),
 spring_planting_date date,
 fertilize_date_1 date,

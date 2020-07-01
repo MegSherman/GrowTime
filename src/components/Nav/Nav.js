@@ -4,21 +4,22 @@ import { connect } from 'react-redux'
 import { setUser } from './../../ducks/reducer'
 // import { logout } from '../../../server/authController'
 import axios from 'axios'
+import { useHistory } from 'react-router-dom'
 
 const Nav = (props) => {
-  console.log(props)
-
-  // useEffect(() => {
-  //   props.setUser()
-  // }, [])
-
+  const { push } = useHistory()
   const handleLogout = () => {
     axios
       .delete('/auth/logout')
       .then(() => {
-        props.history.push('/')
+        // console.log(props.user)
+        props.setUser(null)
+        push('/')
       })
-      .catch((error) => alert('Unable to logout.'))
+      .catch((error) => {
+        console.log(error)
+        alert('Unable to logout.')
+      })
   }
 
   return (
@@ -27,7 +28,7 @@ const Nav = (props) => {
         <img src={logo} alt='GrowTime logo' className='nav-logo' />
         <div className='welcome-and-logout'>
           {/* <h4>Welcome!</h4> */}
-          <h3>Welcome, {props.user.first_name}!</h3>
+          <h4>Welcome, {props.user && props.user.first_name}!</h4>
           <a className='logout' onClick={() => handleLogout()}>
             Logout
           </a>

@@ -1,7 +1,7 @@
-.unselected {
-  .unselected-box-container {
+.selected {
+  .selected-box-container {
     @include flexCenter(column);
-    .unselected-box {
+    .selected-box {
       @include master-input-container;
       justify-content: flex-start;
       min-height: 70vh;
@@ -16,7 +16,7 @@
         margin: 2% 5%;
       }
     }
-    .unselected-map {
+    .selected-map {
       @include flexCenter(row);
       flex-wrap: wrap;
       justify-content: space-around;

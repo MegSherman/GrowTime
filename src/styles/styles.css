@@ -47,7 +47,7 @@
   margin-top: 1%;
 }
 
-.auth-box-container .auth-box h1:before, .auth-box-container .auth-box .register-box .welcome, .register-box .auth-box-container .auth-box .welcome, .auth-box-container .auth-box .unselected .unselected-box-container .unselected-box h1, .unselected .unselected-box-container .unselected-box .auth-box-container .auth-box h1 {
+.auth-box-container .auth-box h1:before, .auth-box-container .auth-box .register-box .welcome, .register-box .auth-box-container .auth-box .welcome, .auth-box-container .auth-box .unselected .unselected-box-container .unselected-box h1, .unselected .unselected-box-container .unselected-box .auth-box-container .auth-box h1, .auth-box-container .auth-box .selected .selected-box-container .selected-box h1, .selected .selected-box-container .selected-box .auth-box-container .auth-box h1 {
   content: 'Grow';
 }
 
@@ -165,6 +165,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 25vw;
   margin-left: 1vw;
 }
 
@@ -176,19 +177,18 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 85%;
-  margin-left: 5%;
-  margin-right: 0%;
+  width: 75%;
+  padding-right: 5%;
 }
 
 .nav-bar .nav-link {
-  font-size: x-large;
+  font-size: larger;
 }
 
 .unselected .unselected-box-container {
@@ -227,6 +227,10 @@
   background-color: white;
   -webkit-box-shadow: 2px 2px 3px 3px #36613b;
           box-shadow: 2px 2px 3px 3px #36613b;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  min-height: 70vh;
   width: 90%;
   margin-top: 20%;
 }
@@ -278,6 +282,97 @@
   text-align: center;
 }
 
+.selected .selected-box-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.selected .selected-box-container .selected-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 90%;
+  width: 30%;
+  margin: 5%;
+  background-color: white;
+  -webkit-box-shadow: 2px 2px 3px 3px #36613b;
+          box-shadow: 2px 2px 3px 3px #36613b;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  min-height: 70vh;
+  width: 90%;
+  margin-top: 20%;
+}
+
+.selected .selected-box-container .selected-box h1 {
+  text-align: center;
+  margin-top: 3%;
+}
+
+.selected .selected-box-container .selected-box h6 {
+  margin: 2% 5%;
+}
+
+.selected .selected-box-container .selected-map {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.selected .selected-box-container .selected-map .plant-block {
+  margin: 0px 10px;
+  padding: 20px;
+}
+
+.selected .selected-box-container .selected-map .plant-block img {
+  margin: 0 auto;
+  height: 250px;
+  width: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.selected .selected-box-container .selected-map .plant-block h3,
+.selected .selected-box-container .selected-map .plant-block p {
+  text-align: center;
+}
+
 * {
   margin: 0;
   border: 0;
@@ -295,7 +390,7 @@
           filter: hue-rotate(40deg);
 }
 
-h1:before, .register-box .welcome, .unselected .unselected-box-container .unselected-box h1 {
+h1:before, .register-box .welcome, .unselected .unselected-box-container .unselected-box h1, .selected .selected-box-container .selected-box h1 {
   color: #80b75f;
   text-shadow: 1px 1px #36613b;
 }

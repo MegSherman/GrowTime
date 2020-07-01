@@ -69,7 +69,7 @@ const Unselected = () => {
           </div>
           <div className='unselected-map'>
             {plants.map((plant, index) => {
-              console.log(plant)
+              // console.log(plant)
               return (
                 <div key={index} className='plant-block'>
                   <img

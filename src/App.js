@@ -8,16 +8,20 @@ import { connect } from 'react-redux'
 import { setUser } from './ducks/reducer'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { toast } from 'react-toastify'
 import axios from 'axios'
 
 function App(props) {
   useEffect(() => {
     axios
       .get('/auth/getUser')
-      .then((res) => {
-        props.setUser(res.data)
+      .then((user) => {
+        props.setUser(user.data)
       })
-      .catch((error) => console.log(error))
+      .catch((error) => {
+        toast.error(error.response.request.response)
+        props.history.push('/')
+      })
   }, [])
   return (
     <Router>

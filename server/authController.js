@@ -101,7 +101,7 @@ module.exports = {
     if (authenticated) {
       const verifiedUser = await db.verified_user(username)
       req.session.user = verifiedUser[0]
-      // console.log(req.session.user)
+      console.log(req.session.user)
       res.status(200).send(req.session.user)
     } else {
       res.status(404).send('Incorrect username or password.')
@@ -109,16 +109,17 @@ module.exports = {
   },
 
   getUser: async (req, res) => {
-    if (req?.session?.user) {
+    // if (req?.session?.user) {
+    //   return res.status(200).send(req.session.user)
+    if (req && req.session && req.session.user) {
+      // console.log('Session sent.')
       return res.status(200).send(req.session.user)
-      // if (req && req.session && req.session.user) {
-      //   return res.status(200).send(req.session.user)
     }
     res.status(404).send('Please login first.')
   },
 
   logout: (req, res) => {
-    // console.log('Hi, authCtrl.logout!')
+    console.log('Hi, authCtrl.logout!')
     req.session.destroy()
     res.sendStatus(200)
   },

@@ -1,6 +1,5 @@
 const initialState = {
   user: null,
-  isAuthenticated: false,
 }
 
 const SET_USER = 'SET_USER'
@@ -41,7 +40,7 @@ export function setUser(payload) {
 export default function (state = initialState, action) {
   switch (action.type) {
     case SET_USER:
-      return { ...state, user: action.payload, isAuthenticated: true }
+      return { ...state, user: action.payload }
     // case LOGIN_USER:
     //   return { ...state, user: action.payload, isLoggedIn: true }
     // case LOGOUT_USER:

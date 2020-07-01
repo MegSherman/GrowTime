@@ -52,14 +52,16 @@ app.set('twilio', twilio)
 app.post('/auth/register', authCtrl.register)
 app.post('/auth/login', authCtrl.login)
 app.delete('/auth/logout', authCtrl.logout)
-app.get('./auth/getUser', authCtrl.getUser)
+app.get('/auth/getUser', authCtrl.getUser)
 // app.get("/test", (req, res) => {
 //   console.log("test endpoint")
 // })
 
 // PLANT ENDPOINTS
 app.get('/api/unselectedplants', plantCtrl.getUnselectedPlants)
+app.get('/api/selectedplants', plantCtrl.getSelectedPlants)
 app.put('/api/selectplant/:plantid', plantCtrl.selectPlant)
+app.put('/api/unselectplant/:plantid', plantCtrl.unselectPlant)
 
 massive({
   connectionString: CONNECTION_STRING,
