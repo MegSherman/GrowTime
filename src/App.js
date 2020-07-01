@@ -12,7 +12,7 @@ function App(props) {
     <Router>
       <div className='App'>
         {props.location.pathname !== '/' &&
-          props.location.pathname !== '/register' && <Nav />}
+          props.location.pathname !== '/#/register' && <Nav />}
         {routes}
       </div>
       <ToastContainer />
