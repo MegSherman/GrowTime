@@ -20,6 +20,17 @@ const nodemailer = require('nodemailer')
 const twilio = require('twilio')(TWILIO_TEST_SID, TWILIO_AUTHTOKEN)
 // const middleware = require('./middleware')
 
+app.use(express.static(`${__dirname}/../build`))
+app.use(express.json())
+app.use(
+  session({
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 1000 * 60 * 60 * 24 * 14 },
+    secret: SESSION_SECRET,
+  })
+)
+
 // NODEMAILER TRANSPORTER
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -33,15 +44,6 @@ app.set('transporter', transporter)
 // TWILIO LOGIC
 app.set('twilio', twilio)
 
-app.use(express.json())
-app.use(
-  session({
-    resave: false,
-    saveUninitialized: true,
-    cookie: { maxAge: 1000 * 60 * 60 * 24 * 14 },
-    secret: SESSION_SECRET,
-  })
-)
 // console.log(authCtrl)
 // console.log(app)
 // console.log(middleware)
