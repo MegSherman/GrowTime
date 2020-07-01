@@ -25,6 +25,18 @@ const Unselected = () => {
       })
   }
 
+  const selectPlant = async (plantid) => {
+    try {
+      let selectResults = await axios.put(`/api/selectplant/${plantid}`)
+      console.log(selectResults.data)
+      toast('Plant added.')
+      getUnselectedPlants()
+      // setPlants(selectResults.data)
+    } catch (error) {
+      console.log(error)
+      toast.error(error.response.request.response)
+    }
+  }
   // const searchPlants = () => {
   //   axios
   //     .get(`/api/plants?filter=${filter}`)
@@ -57,9 +69,14 @@ const Unselected = () => {
           </div>
           <div className='unselected-map'>
             {plants.map((plant, index) => {
+              console.log(plant)
               return (
                 <div key={index} className='plant-block'>
-                  <img src={plant.plant_pic} alt={plant.common_name} />
+                  <img
+                    src={plant.plant_pic}
+                    alt={plant.common_name}
+                    onClick={() => selectPlant(plant.id)}
+                  />
                   <h3>{plant.common_name}</h3>
                   <p>{plant.scientific_name}</p>
                 </div>

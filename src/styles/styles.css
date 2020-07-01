@@ -190,22 +190,6 @@
   font-size: x-large;
 }
 
-.unselected {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
 .unselected .unselected-box-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -220,8 +204,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 90%;
-  margin: 0%;
 }
 
 .unselected .unselected-box-container .unselected-box {
@@ -254,7 +236,7 @@
 }
 
 .unselected .unselected-box-container .unselected-box h6 {
-  margin: 2% 5% 2% 5%;
+  margin: 2% 5%;
 }
 
 .unselected .unselected-box-container .unselected-map {
@@ -278,37 +260,20 @@
 }
 
 .unselected .unselected-box-container .unselected-map .plant-block {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  height: 30vh;
-  width: 15vw;
   margin: 0px 10px;
+  padding: 20px;
 }
 
 .unselected .unselected-box-container .unselected-map .plant-block img {
-  margin: 2%;
+  margin: 0 auto;
   height: 250px;
   width: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
-.unselected .unselected-box-container .unselected-map .plant-block h3 {
-  width: 15vw;
+.unselected .unselected-box-container .unselected-map .plant-block h3,
+.unselected .unselected-box-container .unselected-map .plant-block p {
   text-align: center;
 }
 

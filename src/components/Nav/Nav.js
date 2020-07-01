@@ -28,7 +28,7 @@ const Nav = (props) => {
         <div className='welcome-and-logout'>
           <h3>Welcome!</h3>
           {/* <h4>Welcome, {props.user.first_name}!</h4> */}
-          <a className='logout' onClick={handleLogout()}>
+          <a className='logout' onClick={() => handleLogout()}>
             Logout
           </a>
         </div>

@@ -1,2 +1,3 @@
 select * from plants
-where selected = false;
+where selected = false
+order by common_name;

@@ -56,6 +56,7 @@ app.delete('/auth/logout', authCtrl.logout)
 
 // PLANT ENDPOINTS
 app.get('/api/unselectedplants', plantCtrl.getUnselectedPlants)
+app.put('/api/selectplant/:plantid', plantCtrl.selectPlant)
 
 massive({
   connectionString: CONNECTION_STRING,
