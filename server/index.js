@@ -52,6 +52,7 @@ app.set('twilio', twilio)
 app.post('/auth/register', authCtrl.register)
 app.post('/auth/login', authCtrl.login)
 app.delete('/auth/logout', authCtrl.logout)
+app.get('./auth/getUser', authCtrl.getUser)
 // app.get("/test", (req, res) => {
 //   console.log("test endpoint")
 // })

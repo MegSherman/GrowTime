@@ -133,8 +133,9 @@
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: start;
-  max-height: 10vh;
+  max-height: 15vh;
   width: 100vw;
+  padding: 1% 0%;
   background: white;
 }
 
@@ -182,7 +183,7 @@
       -ms-flex-align: center;
           align-items: center;
   width: 85%;
-  margin-left: 20%;
+  margin-left: 5%;
   margin-right: 0%;
 }
 

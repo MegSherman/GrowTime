@@ -26,8 +26,8 @@ const Nav = (props) => {
       <div className='logo-block'>
         <img src={logo} alt='GrowTime logo' className='nav-logo' />
         <div className='welcome-and-logout'>
-          <h3>Welcome!</h3>
-          {/* <h4>Welcome, {props.user.first_name}!</h4> */}
+          {/* <h4>Welcome!</h4> */}
+          <h3>Welcome, {props.user.first_name}!</h3>
           <a className='logout' onClick={() => handleLogout()}>
             Logout
           </a>

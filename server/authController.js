@@ -108,6 +108,15 @@ module.exports = {
     }
   },
 
+  getUser: async (req, res) => {
+    if (req?.session?.user) {
+      return res.status(200).send(req.session.user)
+      // if (req && req.session && req.session.user) {
+      //   return res.status(200).send(req.session.user)
+    }
+    res.status(404).send('Please login first.')
+  },
+
   logout: (req, res) => {
     // console.log('Hi, authCtrl.logout!')
     req.session.destroy()
