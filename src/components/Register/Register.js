@@ -62,37 +62,41 @@ const Register = (props) => {
             <br></br>so we can retrieve plants in your hardiness zone and set up
             text reminders for your calendar.
           </p>
-          <input
-            className='master-input-box'
-            placeholder='First Name'
-            type='text'
-            attribute='required'
-            attribute='autocapitalize'
-            onChange={(e) => setFirstName(e.target.value)}
-          />
-          <input
-            className='master-input-box'
-            placeholder='Last Name'
-            type='text'
-            attribute='required'
-            attribute='autocapitalize'
-            onChange={(e) => setLastName(e.target.value)}
-          />
-          <input
-            className='master-input-box'
-            placeholder='Email'
-            type='email'
-            attribute='required'
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            className='master-input-box'
-            placeholder='Phone'
-            type='tel'
-            pattern='([0-9]{3}) [0-9]{3}-[0-9]{4}'
-            attribute='required'
-            onChange={(e) => setPhone(e.target.value)}
-          />
+          <div className='register-row'>
+            <input
+              className='master-input-box'
+              placeholder='First Name'
+              type='text'
+              attribute='required'
+              attribute='autocapitalize'
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+            <input
+              className='master-input-box'
+              placeholder='Last Name'
+              type='text'
+              attribute='required'
+              attribute='autocapitalize'
+              onChange={(e) => setLastName(e.target.value)}
+            />
+          </div>
+          <div className='register-row'>
+            <input
+              className='master-input-box'
+              placeholder='Email'
+              type='email'
+              attribute='required'
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              className='master-input-box'
+              placeholder='Phone'
+              type='tel'
+              pattern='([0-9]{3}) [0-9]{3}-[0-9]{4}'
+              attribute='required'
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </div>
           <input
             className='master-input-box'
             placeholder='City'

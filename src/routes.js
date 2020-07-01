@@ -11,7 +11,7 @@ import Database from './components/Database/Database'
 export default (
   <Switch>
     <Route exact path='/' component={Auth} />
-    <Route exact path='/#/register' component={Register} />
+    <Route exact path='/register' component={Register} />
     {/* <Route path='/calendar' component={Month} /> */}
     <Route path='/plantlist' component={Selected} />
     <Route path='/addplant' component={Unselected} />

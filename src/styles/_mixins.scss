@@ -8,7 +8,7 @@
 @mixin master-input-container {
   @include flexCenter(column);
   height: 90%;
-  width: 30%;
+  width: 60%;
   margin: 5%;
   background-color: white;
   box-shadow: 2px 2px 3px 3px $darkestGreen;

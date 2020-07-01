@@ -29,7 +29,7 @@
       -ms-flex-align: center;
           align-items: center;
   height: 90%;
-  width: 30%;
+  width: 60%;
   margin: 5%;
   background-color: white;
   -webkit-box-shadow: 2px 2px 3px 3px #36613b;
@@ -100,7 +100,7 @@
       -ms-flex-align: center;
           align-items: center;
   height: 90%;
-  width: 30%;
+  width: 60%;
   margin: 5%;
   background-color: white;
   -webkit-box-shadow: 2px 2px 3px 3px #36613b;
@@ -123,6 +123,33 @@
 
 .register-box .master-button {
   margin: 4%;
+}
+
+.register-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 1000px) {
+  .register-row {
+    background-color: red;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .nav-bar {
@@ -222,7 +249,7 @@
       -ms-flex-align: center;
           align-items: center;
   height: 90%;
-  width: 30%;
+  width: 60%;
   margin: 5%;
   background-color: white;
   -webkit-box-shadow: 2px 2px 3px 3px #36613b;
@@ -313,7 +340,7 @@
       -ms-flex-align: center;
           align-items: center;
   height: 90%;
-  width: 30%;
+  width: 60%;
   margin: 5%;
   background-color: white;
   -webkit-box-shadow: 2px 2px 3px 3px #36613b;
@@ -417,7 +444,7 @@ p {
 
 .master-input-box {
   height: 4vh;
-  width: 60%;
+  width: 100px;
   border: 1px solid black;
   border-radius: 2px;
   margin: 4px;

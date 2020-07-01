@@ -115,7 +115,7 @@ module.exports = {
       // console.log('Session sent.')
       return res.status(200).send(req.session.user)
     }
-    res.status(404).send('Please login first.')
+    res.status(404).send('Please login.')
   },
 
   logout: (req, res) => {
