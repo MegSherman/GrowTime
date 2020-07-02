@@ -57,11 +57,11 @@ const Register = (props) => {
       <div className='register-box-container'>
         <div className='register-box'>
           <h1 className='welcome'>Welcome!</h1>
-          <p>
+          <h6>
             <b>Tell us a bit about yourself - </b>
             <br></br>so we can retrieve plants in your hardiness zone and set up
             text reminders for your calendar.
-          </p>
+          </h6>
           <div className='register-row'>
             <input
               className='master-input-box'
@@ -97,36 +97,40 @@ const Register = (props) => {
               onChange={(e) => setPhone(e.target.value)}
             />
           </div>
-          <input
-            className='master-input-box'
-            placeholder='City'
-            type='text'
-            attribute='required'
-            attribute='autocapitalize'
-            onChange={(e) => setCity(e.target.value)}
-          />
-          <input
-            className='master-input-box'
-            placeholder='State'
-            type='text'
-            attribute='required'
-            attribute='autocapitalize'
-            onChange={(e) => setState(e.target.value)}
-          />
-          <input
-            className='master-input-box'
-            placeholder='Username'
-            type='text'
-            attribute='required'
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <input
-            className='master-input-box'
-            placeholder='Password'
-            type='password'
-            attribute='required'
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <div className='register-row'>
+            <input
+              className='master-input-box'
+              placeholder='City'
+              type='text'
+              attribute='required'
+              attribute='autocapitalize'
+              onChange={(e) => setCity(e.target.value)}
+            />
+            <input
+              className='master-input-box'
+              placeholder='State'
+              type='text'
+              attribute='required'
+              attribute='autocapitalize'
+              onChange={(e) => setState(e.target.value)}
+            />
+          </div>
+          <div className='register-row'>
+            <input
+              className='master-input-box'
+              placeholder='Username'
+              type='text'
+              attribute='required'
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              className='master-input-box'
+              placeholder='Password'
+              type='password'
+              attribute='required'
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
           <button className='master-button' onClick={() => handleRegister()}>
             Register
           </button>

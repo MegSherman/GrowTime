@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import logo from './../../images/growtime-logo.png'
 import { connect } from 'react-redux'
 import { setUser } from './../../ducks/reducer'
-// import { logout } from '../../../server/authController'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
+// import { logout } from '../../../server/authController'
 
 const Nav = (props) => {
   const { push } = useHistory()

@@ -4,6 +4,7 @@ import { HashRouter as Router } from 'react-router-dom'
 import Nav from './components/Nav/Nav'
 import routes from './routes'
 import { withRouter } from 'react-router-dom'
+import MobileNav from './components/Nav/MobileNav'
 import { connect } from 'react-redux'
 import { setUser } from './ducks/reducer'
 import { ToastContainer } from 'react-toastify'
@@ -27,7 +28,12 @@ function App(props) {
     <Router>
       <div className='App'>
         {props.location.pathname !== '/' &&
-          props.location.pathname !== '/register' && <Nav />}
+          props.location.pathname !== '/register' && (
+            <>
+              <Nav />
+              <MobileNav />
+            </>
+          )}
         {routes}
       </div>
       <ToastContainer />
