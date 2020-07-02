@@ -3,6 +3,7 @@ import Background from './../Background/Background'
 import axios from 'axios'
 
 const Profile = (props) => {
+  console.log(props)
   const [plantId, setPlantId] = useState('')
   const [commonName, setCommonName] = useState('')
   const [scientificName, setScientificName] = useState('')
@@ -26,10 +27,10 @@ const Profile = (props) => {
   const [pruneDate, setPruneDate] = useState('')
   const [fallPlantingDate, setFallPlantingDate] = useState('')
 
-  useEffect(() => {
-    setPlantId(props.plantId)
-    getPlantCard(plantId)
-  }, [])
+  // useEffect((props) => {
+  //   // setPlantId()
+  //   getPlantCard(props.id)
+  // }, [])
 
   const getPlantCard = (plantId) => {
     axios.get(`/api/plantcard/${plantId}`).then((res) => {

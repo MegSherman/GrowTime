@@ -2,13 +2,13 @@
   @include flexCenter(column);
   .auth-box {
     @include master-input-container;
-    width: 40%;
+    width: 30%;
     #its {
       margin-top: 7%;
       margin-bottom: 1%;
     }
     .logo {
-      width: 50%;
+      width: 30%;
       max-width: 95%;
       margin-top: 1%;
     }
@@ -17,6 +17,11 @@
     }
     h1:after {
       content: 'Time!';
+    }
+    P {
+      font-size: medium;
+      padding-left: 10%;
+      padding-right: 10%;
     }
     h6 {
       text-align: center;
@@ -32,8 +37,8 @@
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 730px) {
   .auth-box {
-    width: 90%;
+    width: 90vw;
   }
 }

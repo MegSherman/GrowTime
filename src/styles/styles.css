@@ -34,7 +34,7 @@
   background-color: white;
   -webkit-box-shadow: 2px 2px 3px 3px #36613b;
           box-shadow: 2px 2px 3px 3px #36613b;
-  width: 40%;
+  width: 30%;
 }
 
 .auth-box-container .auth-box #its {
@@ -43,7 +43,7 @@
 }
 
 .auth-box-container .auth-box .logo {
-  width: 50%;
+  width: 30%;
   max-width: 95%;
   margin-top: 1%;
 }
@@ -54,6 +54,12 @@
 
 .auth-box-container .auth-box h1:after {
   content: 'Time!';
+}
+
+.auth-box-container .auth-box P {
+  font-size: medium;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .auth-box-container .auth-box h6 {
@@ -70,9 +76,9 @@
   font-style: normal;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 730px) {
   .auth-box {
-    width: 90%;
+    width: 90vw;
   }
 }
 

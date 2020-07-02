@@ -8,6 +8,7 @@ import { useHistory } from 'react-router-dom'
 const Selected = (props) => {
   const { push } = useHistory()
   const [plants, setPlants] = useState([])
+  const [plantId, setPlantId] = useState([])
   //   const [filter, setFilter] = useState('')
 
   useEffect(() => {
@@ -42,7 +43,17 @@ const Selected = (props) => {
 
   const viewProfile = (plantid) => {
     console.log(plantid)
-    push(`/profiles/${plantid}`)
+    axios
+      .get(`/api/plantcard/${plantid}`)
+      .then((res) => {
+        console.log(res.data)
+        setPlantId(res.data.div)
+        push(`/profiles/${plantid}`)
+      })
+      .catch((error) => {
+        console.log(error)
+        toast(error.response.request.response)
+      })
   }
   // const searchPlants = () => {
   //   axios
