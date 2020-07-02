@@ -9,7 +9,7 @@ import { connect } from 'react-redux'
 import { setUser } from './ducks/reducer'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { toast } from 'react-toastify'
+// import { toast } from 'react-toastify'
 import axios from 'axios'
 
 function App(props) {
@@ -20,7 +20,7 @@ function App(props) {
         props.setUser(user.data)
       })
       .catch((error) => {
-        toast.error(error.response.request.response)
+        // toast.error(error.response.request.response)
         props.history.push('/')
       })
   }, [])

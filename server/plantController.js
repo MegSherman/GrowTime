@@ -47,6 +47,17 @@ module.exports = {
     }
   },
 
+  getPlant: async (req, res) => {
+    const db = req.app.get('db')
+    const { plantid } = req.params
+    try {
+      const selectedPlant = await db.get_plant(plantid)
+      res.status(200).send(selectedPlant)
+    } catch (error) {
+      res.status(500).send('Unable to retrieve plant profile.')
+    }
+  },
+
   selectPlant: async (req, res) => {
     const { plantid } = req.params
     const db = req.app.get('db')

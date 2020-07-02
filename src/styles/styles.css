@@ -29,11 +29,12 @@
       -ms-flex-align: center;
           align-items: center;
   height: 90%;
-  width: 60%;
+  max-width: 80%;
   margin: 5%;
   background-color: white;
   -webkit-box-shadow: 2px 2px 3px 3px #36613b;
           box-shadow: 2px 2px 3px 3px #36613b;
+  width: 40%;
 }
 
 .auth-box-container .auth-box #its {
@@ -47,7 +48,7 @@
   margin-top: 1%;
 }
 
-.auth-box-container .auth-box h1:before, .auth-box-container .auth-box .register-box .welcome, .register-box .auth-box-container .auth-box .welcome, .auth-box-container .auth-box .unselected .unselected-box-container .unselected-box h1, .unselected .unselected-box-container .unselected-box .auth-box-container .auth-box h1, .auth-box-container .auth-box .selected .selected-box-container .selected-box h1, .selected .selected-box-container .selected-box .auth-box-container .auth-box h1 {
+.auth-box-container .auth-box h1:before, .auth-box-container .auth-box .register-box .welcome, .register-box .auth-box-container .auth-box .welcome, .auth-box-container .auth-box .unselected .unselected-box-container .unselected-box h1, .unselected .unselected-box-container .unselected-box .auth-box-container .auth-box h1, .auth-box-container .auth-box .selected .selected-box-container .selected-box h1, .selected .selected-box-container .selected-box .auth-box-container .auth-box h1, .auth-box-container .auth-box .profile .profile-box-container .profile-box h1, .profile .profile-box-container .profile-box .auth-box-container .auth-box h1 {
   content: 'Grow';
 }
 
@@ -67,6 +68,12 @@
 .auth-box-container .auth-box #register-text {
   margin-top: 2%;
   font-style: normal;
+}
+
+@media (max-width: 700px) {
+  .auth-box {
+    width: 90%;
+  }
 }
 
 .register-box-container {
@@ -100,7 +107,7 @@
       -ms-flex-align: center;
           align-items: center;
   height: 90%;
-  width: 60%;
+  max-width: 80%;
   margin: 5%;
   background-color: white;
   -webkit-box-shadow: 2px 2px 3px 3px #36613b;
@@ -116,6 +123,8 @@
   text-align: center;
   font-style: normal;
   margin-top: 0;
+  padding-left: 15%;
+  padding-right: 15%;
 }
 
 .register-box .master-input-box {
@@ -164,6 +173,9 @@
   width: 100vw;
   padding: 1% 0%;
   background: white;
+  border: 1px black;
+  -webkit-box-shadow: 1px 1px 1px 1px #36613b;
+          box-shadow: 1px 1px 1px 1px #36613b;
 }
 
 .nav-bar .logo-block {
@@ -231,6 +243,9 @@
   width: 100vw;
   padding: 1% 0%;
   background: white;
+  border: 1px black;
+  -webkit-box-shadow: 1px 1px 1px 1px #36613b;
+          box-shadow: 1px 1px 1px 1px #36613b;
 }
 
 .mobile-nav-bar .logo-block {
@@ -249,7 +264,6 @@
 }
 
 .mobile-nav-bar .hamburger-icon {
-  margin-top: 0.4vh;
   float: right;
 }
 
@@ -370,7 +384,7 @@
       -ms-flex-align: center;
           align-items: center;
   height: 90%;
-  width: 60%;
+  max-width: 80%;
   margin: 5%;
   background-color: white;
   -webkit-box-shadow: 2px 2px 3px 3px #36613b;
@@ -390,6 +404,8 @@
 
 .unselected .unselected-box-container .unselected-box h6 {
   margin: 2% 5%;
+  padding-right: 15%;
+  padding-left: 15%;
 }
 
 .unselected .unselected-box-container .unselected-map {
@@ -430,6 +446,16 @@
   text-align: center;
 }
 
+.unselected .unselected-box-container .unselected-map .plant-block .button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .selected .selected-box-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -461,7 +487,7 @@
       -ms-flex-align: center;
           align-items: center;
   height: 90%;
-  width: 60%;
+  max-width: 80%;
   margin: 5%;
   background-color: white;
   -webkit-box-shadow: 2px 2px 3px 3px #36613b;
@@ -481,6 +507,8 @@
 
 .selected .selected-box-container .selected-box h6 {
   margin: 2% 5%;
+  padding-left: 15%;
+  padding-right: 15%;
 }
 
 .selected .selected-box-container .selected-map {
@@ -521,6 +549,109 @@
   text-align: center;
 }
 
+.selected .selected-box-container .selected-map .plant-block .button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.profile .profile-box-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile .profile-box-container .profile-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 90%;
+  max-width: 80%;
+  margin: 5%;
+  background-color: white;
+  -webkit-box-shadow: 2px 2px 3px 3px #36613b;
+          box-shadow: 2px 2px 3px 3px #36613b;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  min-height: 70vh;
+  width: 90%;
+  margin-top: 20%;
+}
+
+.profile .profile-box-container .profile-box h1 {
+  text-align: center;
+  margin-top: 3%;
+}
+
+.profile .profile-box-container .profile-box h6 {
+  margin: 2% 5%;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.profile .profile-box-container .selected-map {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.profile .profile-box-container .selected-map .plant-block {
+  margin: 0px 10px;
+  padding: 20px;
+}
+
+.profile .profile-box-container .selected-map .plant-block img {
+  margin: 0 auto;
+  height: 250px;
+  width: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.profile .profile-box-container .selected-map .plant-block h3,
+.profile .profile-box-container .selected-map .plant-block p {
+  text-align: center;
+}
+
 * {
   margin: 0;
   border: 0;
@@ -538,7 +669,7 @@
           filter: hue-rotate(40deg);
 }
 
-h1:before, .register-box .welcome, .unselected .unselected-box-container .unselected-box h1, .selected .selected-box-container .selected-box h1 {
+h1:before, .register-box .welcome, .unselected .unselected-box-container .unselected-box h1, .selected .selected-box-container .selected-box h1, .profile .profile-box-container .profile-box h1 {
   color: #80b75f;
   text-shadow: 1px 1px #36613b;
 }

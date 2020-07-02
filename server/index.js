@@ -60,6 +60,7 @@ app.get('/auth/getUser', authCtrl.getUser)
 // PLANT ENDPOINTS
 app.get('/api/unselectedplants', plantCtrl.getUnselectedPlants)
 app.get('/api/selectedplants', plantCtrl.getSelectedPlants)
+app.get('/api/plantcard/:plantid', plantCtrl.getPlant)
 app.put('/api/selectplant/:plantid', plantCtrl.selectPlant)
 app.put('/api/unselectplant/:plantid', plantCtrl.unselectPlant)
 

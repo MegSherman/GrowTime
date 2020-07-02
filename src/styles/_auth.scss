@@ -2,6 +2,7 @@
   @include flexCenter(column);
   .auth-box {
     @include master-input-container;
+    width: 40%;
     #its {
       margin-top: 7%;
       margin-bottom: 1%;
@@ -28,5 +29,11 @@
       margin-top: 2%;
       font-style: normal;
     }
+  }
+}
+
+@media (max-width: 700px) {
+  .auth-box {
+    width: 90%;
   }
 }

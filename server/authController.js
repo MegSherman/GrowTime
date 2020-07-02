@@ -58,7 +58,7 @@ module.exports = {
         to: email,
         subject: 'Thanks for Registering!',
         text:
-          'Thank you for registering your account with us, check out all the features of our website and enjoy your stay.',
+          'Thank you for registering your account with GrowTime. Check out all the features of our website and enjoy your stay!',
         html: '',
       }
       transporter.sendMail(mailOptions, (error, data) => {

@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import Background from './../Background/Background'
+import { useHistory } from 'react-router-dom'
 // import Plants from './../Plants/Plants'
 
 const Unselected = () => {
+  const { push } = useHistory()
   const [plants, setPlants] = useState([])
   //   const [filter, setFilter] = useState('')
 
@@ -37,6 +39,11 @@ const Unselected = () => {
       toast.error(error.response.request.response)
     }
   }
+
+  const viewProfile = (plantid) => {
+    console.log(plantid)
+    push(`/profiles/${plantid}`)
+  }
   // const searchPlants = () => {
   //   axios
   //     .get(`/api/plants?filter=${filter}`)
@@ -61,9 +68,7 @@ const Unselected = () => {
           <div className='unselected-text'>
             <h1>Add Plants to Your List</h1>
             <h6>
-              Click on a photo below to add the plant to your plant list and
-              receive text reminders for its care. Double-click to view its
-              profile.
+              Click below to view a plant's profile or add it to your list.
             </h6>
             {/* <input placeholder='Search by Plant Name' onChange={searchPlants()} /> */}
           </div>
@@ -72,13 +77,21 @@ const Unselected = () => {
               // console.log(plant)
               return (
                 <div key={index} className='plant-block'>
-                  <img
-                    src={plant.plant_pic}
-                    alt={plant.common_name}
-                    onClick={() => selectPlant(plant.id)}
-                  />
+                  <img src={plant.plant_pic} alt={plant.common_name} />
                   <h3>{plant.common_name}</h3>
                   <p>{plant.scientific_name}</p>
+                  <div className='button-container'>
+                    <button
+                      onClick={() => viewProfile(plant.id)}
+                      className='master-button'>
+                      View Profile
+                    </button>
+                    <button
+                      onClick={() => selectPlant(plant.id)}
+                      className='master-button'>
+                      Add to List
+                    </button>
+                  </div>
                 </div>
               )
             })}

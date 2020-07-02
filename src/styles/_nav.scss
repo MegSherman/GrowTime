@@ -6,6 +6,8 @@
   width: 100vw;
   padding: 1% 0%;
   background: white;
+  border: 1px black;
+  box-shadow: 1px 1px 1px 1px $darkestGreen;
   .logo-block {
     display: flex;
     flex-direction: row;
@@ -46,6 +48,8 @@
   width: 100vw;
   padding: 1% 0%;
   background: white;
+  border: 1px black;
+  box-shadow: 1px 1px 1px 1px $darkestGreen;
   .logo-block {
     display: flex;
     flex-direction: row;
@@ -55,7 +59,6 @@
     }
   }
   .hamburger-icon {
-    margin-top: 0.4vh;
     float: right;
   }
 }

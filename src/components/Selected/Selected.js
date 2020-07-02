@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import Background from './../Background/Background'
+import { useHistory } from 'react-router-dom'
 // import Plants from './../Plants/Plants'
 
-const Selected = () => {
+const Selected = (props) => {
+  const { push } = useHistory()
   const [plants, setPlants] = useState([])
   //   const [filter, setFilter] = useState('')
 
@@ -37,6 +39,11 @@ const Selected = () => {
       toast.error(error.response.request.response)
     }
   }
+
+  const viewProfile = (plantid) => {
+    console.log(plantid)
+    push(`/profiles/${plantid}`)
+  }
   // const searchPlants = () => {
   //   axios
   //     .get(`/api/plants?filter=${filter}`)
@@ -61,9 +68,9 @@ const Selected = () => {
           <div className='selected-text'>
             <h1>Your Plant List</h1>
             <h6>
-              You are currently tracking the following plants and receiving text
-              reminders for their care. Click on a photo below to remove the
-              plant from your list. Double-click to view its profile.
+              You currently track the following plants and receive text
+              reminders for their care. Click below to view a plant's profile or
+              remove it from your list.
             </h6>
             {/* <input placeholder='Search by Plant Name' onChange={searchPlants()} /> */}
           </div>
@@ -75,10 +82,23 @@ const Selected = () => {
                   <img
                     src={plant.plant_pic}
                     alt={plant.common_name}
-                    onClick={() => unselectPlant(plant.id)}
+                    // onDoubleClick={() => getProfile(plant.id)}
+                    // onClick={() => unselectPlant(plant.id)}
                   />
                   <h3>{plant.common_name}</h3>
                   <p>{plant.scientific_name}</p>
+                  <div className='button-container'>
+                    <button
+                      onClick={() => viewProfile(plant.id)}
+                      className='master-button'>
+                      View Profile
+                    </button>
+                    <button
+                      onClick={() => unselectPlant(plant.id)}
+                      className='master-button'>
+                      Remove from List
+                    </button>
+                  </div>
                 </div>
               )
             })}
