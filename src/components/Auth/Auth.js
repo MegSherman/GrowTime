@@ -3,7 +3,7 @@ import axios from 'axios'
 import logo from './../../images/growtime-logo.png'
 import Background from './../Background/Background'
 import { connect } from 'react-redux'
-import { setUser } from '../../ducks/reducer'
+import { setUser } from '../../ducks/authReducer'
 
 const Auth = (props) => {
   const [username, setUsername] = useState([''])

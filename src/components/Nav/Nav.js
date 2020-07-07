@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from './../../images/growtime-logo.png'
 import { connect } from 'react-redux'
-import { setUser } from './../../ducks/reducer'
+import { setUser } from './../../ducks/authReducer'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 // import { logout } from '../../../server/authController'
@@ -28,7 +28,7 @@ const Nav = (props) => {
         <img src={logo} alt='GrowTime logo' className='nav-logo' />
         <div className='welcome-and-logout'>
           {/* <h4>Welcome!</h4> */}
-          <h4>Welcome, {props.user && props.user.first_name}!</h4>
+          <h4>Welcome, {props.auth.user && props.auth.user.first_name}!</h4>
           <a className='logout' onClick={() => handleLogout()}>
             Logout
           </a>

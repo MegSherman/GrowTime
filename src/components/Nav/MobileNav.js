@@ -3,7 +3,7 @@ import logo from './../../images/growtime-logo.png'
 import { HamburgerArrow } from 'react-animated-burgers'
 import { Transition } from 'react-transition-group'
 import { connect } from 'react-redux'
-import { setUser } from './../../ducks/reducer'
+import { setUser } from './../../ducks/authReducer'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 
